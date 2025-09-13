@@ -164,4 +164,63 @@ public class Grafo {
         mostrarAresta();
     }
     
+    public void mostrarMatrizAdjacente(){
+        int n = vertices.size();
+        int [][] matriz = new int[n][n];
+        
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                matriz [i] [j] = 0;
+            }
+        }
+        
+        for (Aresta a : arestas){
+            int i = vertices.indexOf(a.getOrigem());
+            int j = vertices.indexOf(a.getDestino());
+            
+            int valor = ponderado ? a.getPeso() : 1;
+            
+            matriz[i][j] = valor;
+            
+        }
+        
+        System.out.println("\nMatriz de adjacencia:");
+        System.out.print(" ");
+        for(Vertice v : vertices){
+            System.out.print(v + " ");
+            
+        }
+        System.out.println();
+        
+        for (int i = 0; i < n; i++) {
+            System.out.print(vertices.get(i) + " ");
+            for (int j = 0; j < n; j++) {
+                System.out.print(" " + matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    
+    public void mostrarListaAdjacente(){
+        System.out.println("Lista adjacente");
+        
+        for (Vertice v : vertices){
+            ArrayList<String> adj = new ArrayList<>();
+            
+            for (Aresta a : arestas){
+                if(a.getOrigem() == v){
+                    String destino = a.getDestino().getValor();
+                    
+                    if(ponderado){
+                        destino += "(" + a.getPeso() + ")";
+                    }
+                    adj.add(destino);
+                }
+            }
+            
+            System.out.println(v + " -> " + adj);
+        }
+    }
+    
+    
 }

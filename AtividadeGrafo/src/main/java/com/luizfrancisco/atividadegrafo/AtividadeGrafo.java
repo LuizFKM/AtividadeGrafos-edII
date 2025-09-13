@@ -28,7 +28,8 @@ public class AtividadeGrafo {
         g.removeVertice("B");
         g.removerAresta("B", "C");
         g.removeVertice("B");
-        g.mostrarGrafo();
+        g.mostrarMatrizAdjacente();
+        g.mostrarListaAdjacente();
         
         
         g2.addVertice("Carlos");
@@ -46,17 +47,10 @@ public class AtividadeGrafo {
         g2.addAresta("Ana", "Felipe", 0);
         g2.addAresta("Eduardo", "Felipe", 0);
         
-        g2.mostrarGrafo();
+        g2.mostrarMatrizAdjacente();
+        g2.mostrarListaAdjacente();
+
         
-        g2.removerAresta("Carlos", "Daniel");
-        g2.mostrarGrafo();
-        g2.removeVertice("Eduardo");
-        
-        g2.removerAresta("Carlos", "Eduardo");
-        g2.removerAresta("Beto", "Eduardo");
-        g2.removerAresta("Eduardo", "Felipe");
-        
-        g2.mostrarGrafo();
         
     }
 }
